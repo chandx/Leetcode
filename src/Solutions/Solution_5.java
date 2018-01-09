@@ -14,7 +14,18 @@ public class Solution_5 {
     }
     public String longestPalindrome(String s) {
         int length= s.length();
-        Costum_Pair[][] test_table= new Costum_Pair[length][length];
+        String result= "";
+        boolean[][] dp= new boolean[length][length];
+        for (int i = length - 1; i >= 0; i--) {
+            for (int j = i; j < length; j++) {
+                dp[i][j]= s.charAt(i)== s.charAt(j)&& (j-i<3|| dp[i+1][j-1]);
+                if (dp[i][j] && (j - i + 1 > result.length())) {
+                    result = s.substring(i,j+1);
+                }
+            }
+        }
+        return result;
+        /*Costum_Pair[][] test_table= new Costum_Pair[length][length];
         //initialize the table
         for (int i = 0; i < length; i++){
             for (int j = 0; j < length; j++){
@@ -54,7 +65,7 @@ public class Solution_5 {
         }
         // test print
 //        print_table(test_table, length);
-        return s.substring(test_table[length-1][0]._front,test_table[length-1][0]._rear+1);
+        return s.substring(test_table[length-1][0]._front,test_table[length-1][0]._rear+1);*/
     }
 
     private void print_table(Costum_Pair[][] test_table, int length){
