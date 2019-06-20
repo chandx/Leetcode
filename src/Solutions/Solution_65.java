@@ -6,7 +6,7 @@ public class Solution_65 {
         boolean e= false;
         boolean n= false;
         char c;
-        
+
         for (int i= 0; i< s.length(); i++){
             c= s.charAt(i);
             if (c== ' ') continue;
