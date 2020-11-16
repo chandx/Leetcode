@@ -38,7 +38,6 @@ public class Solution_22 {
             re.add(temp1);
         }
 
-        List<String> r= re.stream().distinct().collect(Collectors.toList());
-        return r;
+        return re.stream().distinct().collect(Collectors.toList());
     }
 }
